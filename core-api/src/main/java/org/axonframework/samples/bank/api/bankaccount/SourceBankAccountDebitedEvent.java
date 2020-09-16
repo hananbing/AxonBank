@@ -28,4 +28,8 @@ public class SourceBankAccountDebitedEvent extends MoneySubtractedEvent {
 
         this.bankTransferId = bankTransferId;
     }
+
+    public String getBankTransferId() {
+        return bankTransferId;
+    }
 }

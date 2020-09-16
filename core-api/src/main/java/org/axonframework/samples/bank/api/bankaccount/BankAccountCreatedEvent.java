@@ -18,10 +18,21 @@ package org.axonframework.samples.bank.api.bankaccount;
 
 import lombok.Value;
 
-@Value
 public class BankAccountCreatedEvent {
 
     private String id;
     private long overdraftLimit;
 
+    public String getId() {
+        return id;
+    }
+
+    public long getOverdraftLimit() {
+        return overdraftLimit;
+    }
+
+    public BankAccountCreatedEvent(String id, long overdraftLimit) {
+        this.id = id;
+        this.overdraftLimit = overdraftLimit;
+    }
 }

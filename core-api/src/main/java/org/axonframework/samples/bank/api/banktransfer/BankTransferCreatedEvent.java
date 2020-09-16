@@ -16,13 +16,36 @@
 
 package org.axonframework.samples.bank.api.banktransfer;
 
-import lombok.Value;
-
-@Value
 public class BankTransferCreatedEvent {
 
-    private String BankTransferId;
-    private String sourceBankAccountId;
-    private String destinationBankAccountId;
-    private long amount;
+  private String BankTransferId;
+  private String sourceBankAccountId;
+  private String destinationBankAccountId;
+  private long amount;
+
+  public String getBankTransferId() {
+    return BankTransferId;
+  }
+
+  public String getSourceBankAccountId() {
+    return sourceBankAccountId;
+  }
+
+  public String getDestinationBankAccountId() {
+    return destinationBankAccountId;
+  }
+
+  public long getAmount() {
+    return amount;
+  }
+
+  public BankTransferCreatedEvent() {
+  }
+
+  public BankTransferCreatedEvent(String bankTransferId, String sourceBankAccountId, String destinationBankAccountId, long amount) {
+    BankTransferId = bankTransferId;
+    this.sourceBankAccountId = sourceBankAccountId;
+    this.destinationBankAccountId = destinationBankAccountId;
+    this.amount = amount;
+  }
 }

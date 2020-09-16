@@ -19,11 +19,28 @@ package org.axonframework.samples.bank.web.dto;
 import lombok.ToString;
 import lombok.Value;
 
-@Value
-@ToString
+
 public class BankTransferDto {
 
     private String sourceBankAccountId;
     private String destinationBankAccountId;
     private long amount;
+
+    public BankTransferDto(String sourceBankAccountId, String destinationBankAccountId, long amount) {
+        this.sourceBankAccountId = sourceBankAccountId;
+        this.destinationBankAccountId = destinationBankAccountId;
+        this.amount = amount;
+    }
+
+    public String getSourceBankAccountId() {
+        return sourceBankAccountId;
+    }
+
+    public String getDestinationBankAccountId() {
+        return destinationBankAccountId;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
 }

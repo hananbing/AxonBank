@@ -30,7 +30,7 @@ import org.springframework.stereotype.Controller;
 import java.util.UUID;
 
 @Controller
-@Slf4j
+//@Slf4j
 public class BankTransferController {
 
     private final CommandGateway commandGateway;
@@ -43,19 +43,19 @@ public class BankTransferController {
 
     @SubscribeMapping("/bank-accounts/{bankAccountId}/bank-transfers")
     public Iterable<BankTransferEntry> bankTransfers(@DestinationVariable String bankAccountId) {
-        log.info("Retrieve bank transfers for bank account with id {}", bankAccountId);
+//        log.info("Retrieve bank transfers for bank account with id {}", bankAccountId);
         return bankTransferRepository.findBySourceBankAccountIdOrDestinationBankAccountId(bankAccountId, bankAccountId);
     }
 
     @MessageMapping("/bank-transfers/{id}")
     public BankTransferEntry get(@DestinationVariable String id) {
-        log.info("Retrieve bank transfer with id {}", id);
+//        log.info("Retrieve bank transfer with id {}", id);
         return bankTransferRepository.findOne(id);
     }
 
     @MessageMapping("/bank-transfers/create")
-    public void create(BankTransferDto bankTransferDto) {
-        log.info("Create bank transfer with payload {}", bankTransferDto);
+    public void createTransfers(BankTransferDto bankTransferDto) {
+//        log.info("Create bank transfer with payload {}", bankTransferDto);
 
         String bankTransferId = UUID.randomUUID().toString();
         CreateBankTransferCommand command = new CreateBankTransferCommand(bankTransferId,

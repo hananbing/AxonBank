@@ -16,10 +16,13 @@
 
 package org.axonframework.samples.bank.api.banktransfer;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
-@Value
+
 public class CreateBankTransferCommand {
 
     @TargetAggregateIdentifier
@@ -27,4 +30,30 @@ public class CreateBankTransferCommand {
     private String sourceBankAccountId;
     private String destinationBankAccountId;
     private long amount;
+
+    public String getBankTransferId() {
+        return bankTransferId;
+    }
+
+    public String getSourceBankAccountId() {
+        return sourceBankAccountId;
+    }
+
+    public String getDestinationBankAccountId() {
+        return destinationBankAccountId;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public CreateBankTransferCommand() {
+    }
+
+    public CreateBankTransferCommand(String bankTransferId, String sourceBankAccountId, String destinationBankAccountId, long amount) {
+        this.bankTransferId = bankTransferId;
+        this.sourceBankAccountId = sourceBankAccountId;
+        this.destinationBankAccountId = destinationBankAccountId;
+        this.amount = amount;
+    }
 }

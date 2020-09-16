@@ -18,7 +18,6 @@ package org.axonframework.samples.bank.api.bankaccount;
 
 import lombok.Getter;
 
-@Getter
 public class DestinationBankAccountCreditedEvent extends MoneyAddedEvent {
 
     private String bankTransferId;
@@ -28,4 +27,9 @@ public class DestinationBankAccountCreditedEvent extends MoneyAddedEvent {
 
         this.bankTransferId = bankTransferId;
     }
+
+    public String getBankTransferId() {
+        return bankTransferId;
+    }
+
 }

@@ -18,9 +18,21 @@ package org.axonframework.samples.bank.web.dto;
 
 import lombok.Value;
 
-@Value
 public class WithdrawalDto {
 
     private String bankAccountId;
     private long amount;
+
+    public WithdrawalDto(String bankAccountId, long amount) {
+        this.bankAccountId = bankAccountId;
+        this.amount = amount;
+    }
+
+    public String getBankAccountId() {
+        return bankAccountId;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
 }
